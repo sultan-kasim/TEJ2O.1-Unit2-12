@@ -7,9 +7,9 @@
 
 
 // variables
-let distanceToObject: number = 0;
+let distanceToObject: number = 0
 
-let strip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB);
+let strip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
 
 // setup
 basic.showIcon(IconNames.Happy);
@@ -17,7 +17,7 @@ basic.showIcon(IconNames.Happy);
 // find distance from sonar and trigger the alert
 input.onButtonPressed(Button.A, function () {
 
-    basic.clearScreen();
+    basic.clearScreen()
 
     // measure distance using the sonar sensor (P1=Trigger, P2=Echo)
     distanceToObject = sonar.ping(
@@ -26,24 +26,24 @@ input.onButtonPressed(Button.A, function () {
         PingUnit.Centimeters
     );
 
-    basic.showNumber(distanceToObject);
+    basic.showNumber(distanceToObject)
 
     // shows Red if too close and shows Green if it's not (flashes for 1 second)
 
     if (distanceToObject >= 10) {
     
         strip.showColor(neopixel.colors(NeoPixelColors.Green));
-        basic.pause(1000);
+        basic.pause(1000)
         
         strip.showColor(neopixel.colors(NeoPixelColors.Black));
     } else {
 
         strip.showColor(neopixel.colors(NeoPixelColors.Red));
-        basic.pause(1000);
+        basic.pause(1000)
         
         strip.showColor(neopixel.colors(NeoPixelColors.Black));
     }
 
   
-    basic.showIcon(IconNames.Happy);
-});
+    basic.showIcon(IconNames.Happy)
+})
