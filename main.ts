@@ -31,19 +31,19 @@ input.onButtonPressed(Button.A, function () {
     // shows Red if too close and shows Green if it's not (flashes for 1 second)
 
     if (distanceToObject >= 10) {
-    
+
         strip.showColor(neopixel.colors(NeoPixelColors.Green));
         basic.pause(1000)
-        
+
         strip.showColor(neopixel.colors(NeoPixelColors.Black));
     } else {
 
         strip.showColor(neopixel.colors(NeoPixelColors.Red));
         basic.pause(1000)
-        
+
         strip.showColor(neopixel.colors(NeoPixelColors.Black));
     }
 
-  
+
     basic.showIcon(IconNames.Happy)
 })
