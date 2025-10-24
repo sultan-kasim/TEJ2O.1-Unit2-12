@@ -2,7 +2,7 @@
  *
  * Created by: Sultan
  * Created on: Oct 2025
- * This program turns on red if to close aand green not too close.
+ * This program turns on red if to close and green not too close.
 */
 
 
