@@ -4,13 +4,11 @@
  * Created on: Oct 2025
  * This program turns on red if to close aand green not too close.
 */
-
 // variables
 let distanceToObject: number = 0
-let strip: neopixel.Strip = null
-strip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
+let strip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
 
-// setup
+//setup
 basic.showIcon(IconNames.Happy)
 
 // find distance from sonar
@@ -23,21 +21,14 @@ input.onButtonPressed(Button.A, function () {
     )
     basic.showNumber(distanceToObject)
 
-    // check distance and light up neoPixel
-    if (distanceToObject <= 10) {
-
-        strip.setPixelColor(0, neopixel.colors(NeoPixelColors.Red))
-        strip.setPixelColor(1, neopixel.colors(NeoPixelColors.Red))
-        strip.setPixelColor(2, neopixel.colors(NeoPixelColors.Red))
-        strip.setPixelColor(3, neopixel.colors(NeoPixelColors.Red))
-        strip.show()
+    // shows red if too close and shows green if it's not
+    if (distanceToObject >= 10) {
+        strip.showColor(neopixel.colors(NeoPixelColors.Green))
+        basic.pause(1000)
+        strip.showColor(neopixel.colors(NeoPixelColors.Black))
     } else {
-        strip.setPixelColor(0, neopixel.colors(NeoPixelColors.Green))
-        strip.setPixelColor(1, neopixel.colors(NeoPixelColors.Green))
-        strip.setPixelColor(2, neopixel.colors(NeoPixelColors.Green))
-        strip.setPixelColor(3, neopixel.colors(NeoPixelColors.Green))
-        strip.show()
+        strip.showColor(neopixel.colors(NeoPixelColors.Red))
+        basic.pause(1000)
+        strip.showColor(neopixel.colors(NeoPixelColors.Black))
     }
-
-    basic.showIcon(IconNames.Happy)
 })
